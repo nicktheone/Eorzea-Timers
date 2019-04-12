@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eorzea_Timers"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Background="#F4F4F4"
+        Title="MainWindow" Height="667" Width="375">
+
+    <!--<Window.Background>
+        <ImageBrush ImageSource="BackgroundLight.png"/>
+    </Window.Background>-->
+
+    <StackPanel>
+        <StackPanel.Background>
+            <ImageBrush ImageSource="Resources/Images/Background.png"/>
+        </StackPanel.Background>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="16"/>
+            </Grid.RowDefinitions>
+        </Grid>
+
+        <Label Content="00:00 AM"
+               HorizontalAlignment="Center"
+               FontSize="37" FontFamily="./Resources/Fonts/#Gilroy Light"
+               Margin="0 200 0 0"/>
+    </StackPanel>
 </Window>
