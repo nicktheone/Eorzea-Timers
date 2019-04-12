@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -263,6 +265,24 @@ namespace Eorzea_Timers
             public int StackSize { get; set; }
             public int StartsWithVowel { get; set; }
             public string Url { get; set; }
+        }
+        #endregion
+
+        #region Methods
+        //Get the data for a single item from XIVAPI.com and return a single item
+        public static Item GetItem(string id)
+        {
+            var client = new RestClient("https://xivapi.com/");
+
+            var request = new RestRequest(string.Format("item/{0}", id), Method.GET);
+            request.AddHeader("Accept", "application/json");
+
+            IRestResponse response = client.Execute(request);
+            var content = response.Content;
+
+            Item item = JsonConvert.DeserializeObject<Item>(content);
+
+            return item;
         }
         #endregion
     }
