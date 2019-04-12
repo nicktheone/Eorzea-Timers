@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Eorzea_Timers
 {
@@ -42,6 +44,20 @@ namespace Eorzea_Timers
             public double patch { get; set; }
             public string condition { get; set; }
             public string bonus { get; set; }
+        }
+        #endregion
+
+        #region Methods
+        //Get the nodes from the JSON file and return a list of nodes
+        public static List<Node> GetNodes()
+        {
+            using (StreamReader streamReader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "Nodes.json"))
+            {
+                string s = streamReader.ReadToEnd();
+                List<Node> nodes = JsonConvert.DeserializeObject<List<Node>>(s);
+
+                return nodes;
+            }
         }
         #endregion
     }
