@@ -12,7 +12,8 @@
         <StackPanel.Background>
             <ImageBrush ImageSource="Resources/Images/Background.png"/>
         </StackPanel.Background>
-        <Grid>
+        
+        <Grid Background="White">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -28,6 +29,18 @@
         <Label x:Name="eorzeaTime" Content="00:00 AM"
                HorizontalAlignment="Center"
                FontSize="37" FontFamily="./Resources/Fonts/#Gilroy Light"
-               Margin="0 200 0 0"/>
+               Margin="0 210 0 190"/>
+
+        <!--https://stackoverflow.com/a/37904044/10617365-->
+        <Line X1="36.5" 
+              X2="338.5"
+              Stroke="Black"
+              StrokeThickness="0.5"/>
+
+        <Line X1="0" 
+              X2="369"
+              Stroke="Black"
+              StrokeThickness="0.2"
+              Margin="0 110 0 0"/>
     </StackPanel>
 </Window>
