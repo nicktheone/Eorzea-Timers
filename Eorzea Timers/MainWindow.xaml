@@ -8,10 +8,6 @@
         Background="#F4F4F4"
         Title="MainWindow" Height="667" Width="375">
 
-    <!--<Window.Background>
-        <ImageBrush ImageSource="BackgroundLight.png"/>
-    </Window.Background>-->
-
     <StackPanel>
         <StackPanel.Background>
             <ImageBrush ImageSource="Resources/Images/Background.png"/>
@@ -29,7 +25,7 @@
             </Grid.RowDefinitions>
         </Grid>
 
-        <Label Content="00:00 AM"
+        <Label x:Name="eorzeaTime" Content="00:00 AM"
                HorizontalAlignment="Center"
                FontSize="37" FontFamily="./Resources/Fonts/#Gilroy Light"
                Margin="0 200 0 0"/>

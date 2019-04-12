@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Eorzea_Timers
 {
@@ -23,6 +25,12 @@ namespace Eorzea_Timers
         public MainWindow()
         {
             InitializeComponent();
+
+            //Start the timer that calculates Eorzea Time
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(2916);
+            timer.Tick += Timer_Tick;
+            timer.Start();
         }
 
         #region Methods
@@ -30,7 +38,12 @@ namespace Eorzea_Timers
         #endregion
 
         #region Events
-
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            //https://stackoverflow.com/a/7875351/10617365
+            var eorzeaTimeNow = DateTime.Now.ToEorzeaTime().ToString("hh:mm tt", CultureInfo.InvariantCulture);
+            eorzeaTime.Content = eorzeaTimeNow;
+        }
         #endregion
     }
 
